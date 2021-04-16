@@ -12,22 +12,30 @@
 
 #include "cub3d.h"
 
-void	ft_check_maplimites(t_all *vars, int *x, int *y)
+void	ft_check_maplimites(t_all *vars, double *x, double *y, char d)
 {
         int     j;
         int     xmax;
+	int	absc;
+	int	ord;
 
+	absc = (int)(*x / 64);
+	ord = (int)(*y / 64);
+	if (d == 'w')
+		absc = (int)(*x / 64) - 1;
+	else if (d == 'n')
+		ord = (int)(*y / 64) - 1;
         j = 0;
         while (vars->map.box[j])
                 j++;
-        if (*y / 64 > j)
-                *y = (j - 1) * 64;
-        else if (*y / 64 < 0)
+        if (ord > j)
+                *y = (double)((j - 1) * 64);
+        else if (ord < 0)
                 *y = 0;
         xmax = ft_lenmax_mpline(vars->map.box);
-        if (*x / 64 < 0)
+        if (absc < 0)
                 *x = 0;
-        else if (*x / 64 > xmax)
+        else if (absc > xmax)
                 *x = (xmax - 1) * 64;
 }
 
@@ -75,10 +83,10 @@ float	ft_onlyhor_intersect(t_all *vars, float angle)
 	return (len);
 }
 
-float	ft_len_closest_wall(t_all *vars, float angle, int *xdm, int i)
+double	ft_len_closest_wall(t_all *vars, float angle, int *xdm, int i)
 {
-	float	x;
-	float	y;
+	double	x;
+	double	y;
 
 	while (angle < 0)
 		angle += 2 * M_PI;

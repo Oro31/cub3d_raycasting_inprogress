@@ -135,22 +135,22 @@ int		ft_isdir(char c);
 char		ft_define_cam(t_map *map);
 float		ft_dir_to_fov(char dir);
 
-float		ft_ne_hor_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_nw_hor_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_sw_hor_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_se_hor_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_hor_intersect(t_all *vars, float angle, int *xdm, int i);
+double		ft_ne_hor_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_nw_hor_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_sw_hor_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_se_hor_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_hor_intersect(t_all *vars, float angle, int *xdm, int i);
 
-float		ft_ne_vert_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_nw_vert_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_sw_vert_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_se_vert_inte(t_all *vars, float angle, int *xdm, int i);
-float		ft_vert_intersect(t_all *vars, float angle, int *xdm, int i);
+double		ft_ne_vert_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_nw_vert_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_sw_vert_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_se_vert_inte(t_all *vars, float angle, int *xdm, int i);
+double		ft_vert_intersect(t_all *vars, float angle, int *xdm, int i);
 
-void		ft_check_maplimites(t_all *vars, int *x, int *y);
+void		ft_check_maplimites(t_all *vars, double *x, double *y, char d);
 float		ft_onlyvert_intersect(t_all *vars, float angle);
 float		ft_onlyhor_intersect(t_all *vars, float angle);
-float		ft_len_closest_wall(t_all *vars, float angle, int *xdm, int i);
+double		ft_len_closest_wall(t_all *vars, float angle, int *xdm, int i);
 void		ft_find_walls(t_all *vars, float *wall, int *xdm);
 
 #endif
